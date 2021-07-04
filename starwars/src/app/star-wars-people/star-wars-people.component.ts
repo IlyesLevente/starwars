@@ -3,7 +3,8 @@ import { StarWarsPeopleService } from './star-wars-people.service';
 import { People } from '../interface/people';
 import { SearchPeople } from '../interface/search-people';
 import { TooltipPosition } from '@angular/material/tooltip';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { SpinnerService } from '../service/spinner.service';
 
 @Component({
   selector: 'app-star-wars-people',
@@ -13,18 +14,20 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class StarWarsPeopleComponent implements OnInit {
   
   constructor(private starWarsService: StarWarsPeopleService,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              public spinnerService: SpinnerService) {
     this.people = [];
     this.page = 1;
     this.results = 0;
     this.next = 0;
     this.previous = 0;
     this.position = 'above';
+    this.input = '';
     this.form = this.formBuilder.group({
       search: ''
   });
   
-   }
+  }
 
   people: People[];
   page: number;
@@ -33,9 +36,13 @@ export class StarWarsPeopleComponent implements OnInit {
   previous: number;
   position: TooltipPosition;
   form: FormGroup;
+  input: string;
 
   ngOnInit(): void {
     this.getPeople();
+    this.form.controls['search'].valueChanges.subscribe(value => {
+      this.input = value;
+    });
   }
 
   getPeople(): void {
@@ -73,6 +80,7 @@ export class StarWarsPeopleComponent implements OnInit {
   }
 
   search(): void {
+    this.people = [];
     if ( this.form.controls['search'].value.length > 0 ) {
       this.searchPeople(this.form.controls['search'].value);
     } else {

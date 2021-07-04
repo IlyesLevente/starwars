@@ -10,13 +10,23 @@
                 </form>
             </mat-grid-tile>
             <mat-grid-tile colspan="1">
-                <button mat-stroked-button color="primary" class="search-button" (click)="search()">SEARCH</button>
+                <button mat-stroked-button
+                        color="primary" 
+                        class="search-button" 
+                        (click)="search()"
+                        matTooltip="Search for all people!"
+                        [matTooltipPosition]="position"
+                        [matTooltipDisabled]="input.length > 0">SEARCH</button>
             </mat-grid-tile>
             <mat-grid-tile colspan="4" class="found">
-                Found: {{results}} results
+                Found: {{results}} result(s)
             </mat-grid-tile>
           </mat-grid-list>
     </mat-card>
+
+    <div *ngIf="spinnerService.isLoading$ | async" class="spinner-wrapper">
+        <mat-spinner class="spinner"></mat-spinner>
+    </div>
 
     <mat-list>
         <mat-list-item *ngFor="let p of people; let i = index" class="table-element">
