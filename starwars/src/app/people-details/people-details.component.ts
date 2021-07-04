@@ -9,7 +9,11 @@ import { People } from '../interface/people';
 })
 export class PeopleDetailsComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {people: People}) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {people: People}) {
+    this.people = data.people;
+  }
+
+  people: People;
 
   ngOnInit(): void {
   }

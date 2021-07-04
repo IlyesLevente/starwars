@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { SharedMockData } from '../interface/shared-mock-data';
 
 import { PeopleDetailsComponent } from './people-details.component';
 
@@ -8,7 +10,16 @@ describe('PeopleDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PeopleDetailsComponent ]
+      imports: [
+        MatDialogModule
+      ],
+      declarations: [ 
+        PeopleDetailsComponent 
+      ],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: SharedMockData.getPeopleDatasMock() },
+        { provide: MatDialogRef, useValue: {} }
+      ]
     })
     .compileComponents();
   });

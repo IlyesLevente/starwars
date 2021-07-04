@@ -2,12 +2,12 @@
     <mat-card class="details">
         DETAILS
     </mat-card>
-    <mat-grid-list cols="2" rowHeight="3:1">
+    <mat-grid-list cols="2" rowHeight="3:1" *ngIf="people">
         <mat-grid-tile>
             <div class="left">
                 Name 
                 <br>
-                {{data.people.name}}
+                {{people.name}}
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -15,7 +15,7 @@
                 Height
                 <br>
                 <span class="right">
-                    {{data.people.height}}
+                    {{people.height}}
                 </span>
             </div>
         </mat-grid-tile>
@@ -23,7 +23,7 @@
             <div class="left">
                 Birth year
                 <br>
-                {{data.people.birth_year}}
+                {{people.birth_year}}
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -31,7 +31,7 @@
                 Mass
                 <br>
                 <span class="right">
-                    {{data.people.mass}}
+                    {{people.mass}}
                 </span>
             </div>
         </mat-grid-tile>
@@ -39,7 +39,7 @@
             <div class="left">
                 Gender
                 <br>
-                {{data.people.gender}}
+                {{people.gender}}
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
@@ -47,7 +47,7 @@
                 Eye color
                 <br>
                 <span class="right">
-                    {{data.people.eye_color}}
+                    {{people.eye_color}}
                 </span>
             </div>
         </mat-grid-tile>
