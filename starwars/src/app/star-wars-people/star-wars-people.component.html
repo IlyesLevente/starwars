@@ -2,15 +2,15 @@
     <mat-card class="table-search">
         <mat-grid-list cols="9" rowHeight="2:1">
             <mat-grid-tile colspan="4">
-                <form class="input-form">
+                <form [formGroup]="form" class="input-form">
                     <mat-form-field class="input-full-width" appearance="fill">
                       <mat-label>Search</mat-label>
-                      <input matInput>
+                      <input matInput name="search" formControlName="search">
                     </mat-form-field>
                 </form>
             </mat-grid-tile>
             <mat-grid-tile colspan="1">
-                <button mat-stroked-button color="primary" class="search-button">SEARCH</button>
+                <button mat-stroked-button color="primary" class="search-button" (click)="search()">SEARCH</button>
             </mat-grid-tile>
             <mat-grid-tile colspan="4" class="found">
                 Found: {{results}} results
@@ -20,7 +20,27 @@
 
     <mat-list>
         <mat-list-item *ngFor="let p of people; let i = index" class="table-element">
-            <mat-card class="table-card-element">{{p.name}}</mat-card>
+            <mat-card class="table-card-element">
+                <mat-grid-list cols="12" rowHeight="2:1">
+                    <mat-grid-tile colspan="1">
+                        {{p.id}}
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="3">
+                        {{p.name}}
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="2">
+                        {{p.birth_year}}
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="2">
+                        {{p.gender}}
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="4">
+                        <button mat-stroked-button
+                        color="primary"
+                        (click)="showDetails()">DETAILS</button>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+            </mat-card>
         </mat-list-item>
     </mat-list> 
 
