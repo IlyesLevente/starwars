@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
@@ -34,7 +35,8 @@ import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
     MatInputModule,
     MatSnackBarModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTooltipModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, 

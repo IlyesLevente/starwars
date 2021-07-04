@@ -9,7 +9,7 @@ import { SearchPeople } from '../interface/search-people';
 
 export class StarWarsPeopleService {
 
-  url = 'https://swapi.dev/api/peoplea';
+  url = 'https://swapi.dev/api/people';
 
   constructor(private http: HttpClient) { }
 

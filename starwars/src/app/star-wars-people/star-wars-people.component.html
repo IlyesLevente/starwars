@@ -1,4 +1,4 @@
-<mat-card class="table" *ngIf="people.length > 0">
+<mat-card class="table">
     <mat-card class="table-search">
         <mat-grid-list cols="9" rowHeight="2:1">
             <mat-grid-tile colspan="4">
@@ -17,9 +17,39 @@
             </mat-grid-tile>
           </mat-grid-list>
     </mat-card>
+
     <mat-list>
         <mat-list-item *ngFor="let p of people; let i = index" class="table-element">
             <mat-card class="table-card-element">{{p.name}}</mat-card>
         </mat-list-item>
     </mat-list> 
+
+    <mat-card class="table-paginator">
+        <mat-grid-list cols="9" rowHeight="2:1">
+            <mat-grid-tile
+                colspan="1"
+                matTooltip="No previous page!"
+                [matTooltipPosition]="position"
+                [matTooltipDisabled]="previous > 0">
+                <button mat-stroked-button
+                        color="primary" 
+                        class="search-button"
+                        [disabled]="previous == 0"
+                        (click)="decreasePage()">PREVIOUS</button>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="7">
+            </mat-grid-tile>
+            <mat-grid-tile
+                colspan="1"
+                matTooltip="No next page!"
+                [matTooltipPosition]="position"
+                [matTooltipDisabled]="next > 0">
+                <button mat-stroked-button
+                        color="primary"
+                        class="search-button"
+                        [disabled]="next == 0"
+                        (click)="increasePage()">NEXT</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+    </mat-card>
 </mat-card>
