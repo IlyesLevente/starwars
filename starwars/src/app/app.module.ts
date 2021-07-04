@@ -21,7 +21,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
-import { LoadingInterceptor } from './interceptor/loading.interceptor';
 import { PeopleDetailsComponent } from './people-details/people-details.component';
 
 @NgModule({
@@ -50,10 +49,6 @@ import { PeopleDetailsComponent } from './people-details/people-details.componen
   providers: [
     { provide: HTTP_INTERCEPTORS, 
       useClass: HttpConfigInterceptor, 
-      multi: true 
-    },
-    { provide: HTTP_INTERCEPTORS, 
-      useClass: LoadingInterceptor,
       multi: true 
     }
   ],
