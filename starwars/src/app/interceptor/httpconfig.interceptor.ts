@@ -18,7 +18,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(
-            catchError((error: HttpErrorResponse) => {             
+            catchError((error: HttpErrorResponse) => {              
               this.snackBar.open(
                 this.getErrorMessage(error), 
                 error.status.toString(), 
@@ -36,16 +36,16 @@ export class HttpConfigInterceptor implements HttpInterceptor {
     getErrorMessage(error: HttpErrorResponse): string {
         switch (error.status) {
             case 404: {
-                return `Not Found: ${error.message}`;
+                return `The requested resource could not be found but may be available in the future`;
             }
             case 403: {
-                return `Forbidden: ${error.message}`;
+                return `Forbidden, the server is refusing action`;
             }
             case 500: {
-                return `Server Error: ${error.message}`;
+                return `Server Error`;
             }
             default: {
-                return `Error: ${error.message}`;
+                return `Error`;
             }
 
         }
