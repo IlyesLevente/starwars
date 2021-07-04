@@ -80,7 +80,7 @@ export class StarWarsPeopleComponent implements OnInit {
   } 
 
   showDetails(people: People): void {
-    let dialogRef = this.dialog.open(PeopleDetailsComponent, {
+    const dialogRef = this.dialog.open(PeopleDetailsComponent, {
       height: '50%',
       width: '35%',
       data: { people: people }

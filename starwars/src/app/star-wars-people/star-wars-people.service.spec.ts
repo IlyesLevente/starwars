@@ -23,4 +23,5 @@ describe('StarWarsPeopleService', () => {
     const searchPeople = service.setId(SharedMockData.getSearchPeopleDatasMock());
     expect(searchPeople.results[0].id).toEqual(1);
   });
+
 });

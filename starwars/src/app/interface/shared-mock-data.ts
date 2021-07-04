@@ -22,7 +22,7 @@ export class SharedMockData {
 
         searchPeople.count = 82; 
         searchPeople.next = "https://swapi.dev/api/people/?page=2";
-        searchPeople.previous = 'null';
+        searchPeople.previous = null;
         searchPeople.results = [];
         searchPeople.results.push(this.getPeopleDatasMock());
 
