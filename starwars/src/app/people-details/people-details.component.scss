@@ -1,0 +1,27 @@
+.close {
+    margin: 0 auto;
+}
+
+.container .button {
+    justify-content: flex-end;
+    display: flex;
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+}
+
+.right {
+    position: absolute;
+    right: 0;
+}
+
+.left {
+    position: absolute;
+    left: 0;
+}
+
+p span {
+    display: block;
+}

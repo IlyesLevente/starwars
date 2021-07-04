@@ -17,15 +17,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
 import { LoadingInterceptor } from './interceptor/loading.interceptor';
+import { PeopleDetailsComponent } from './people-details/people-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StarWarsPeopleComponent
+    StarWarsPeopleComponent,
+    PeopleDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { LoadingInterceptor } from './interceptor/loading.interceptor';
     MatButtonModule,
     MatGridListModule,
     MatTooltipModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, 

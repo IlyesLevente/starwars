@@ -1,0 +1,59 @@
+<div class="dialog">
+    <mat-card class="details">
+        DETAILS
+    </mat-card>
+    <mat-grid-list cols="2" rowHeight="3:1">
+        <mat-grid-tile>
+            <div class="left">
+                Name 
+                <br>
+                {{data.people.name}}
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="right">
+                Height
+                <br>
+                <span class="right">
+                    {{data.people.height}}
+                </span>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="left">
+                Birth year
+                <br>
+                {{data.people.birth_year}}
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="right">
+                Mass
+                <br>
+                <span class="right">
+                    {{data.people.mass}}
+                </span>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="left">
+                Gender
+                <br>
+                {{data.people.gender}}
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="right">
+                Eye color
+                <br>
+                <span class="right">
+                    {{data.people.eye_color}}
+                </span>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
+    <div mat-dialog-actions align="center" class="button">
+        <button mat-stroked-button color="primary" mat-dialog-close>CLOSE</button>
+    </div>
+</div>
