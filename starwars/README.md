@@ -1,27 +1,36 @@
+
 # Starwars
+
+  
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
+  
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  
 
-## Code scaffolding
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  
 
-## Build
+## Project uses swapi, a free Star Wars API!
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  
 
-## Running unit tests
+Documentation for [SWAPI](https://swapi.dev/documentation). Currently the People resource is implemented.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  
 
-## Running end-to-end tests
+## Modules
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+#### People
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This module contains 2 components, services for loading indication and requests, StarWarsPeopleComponent is used for searching in People resource and listing the results, PeopleDetailsComponent is used as a dialog to show more data about the selected row.
+
+### Core
+
+This module contains an interceptor for error handling and a mock data class for unit tests. 
+  
