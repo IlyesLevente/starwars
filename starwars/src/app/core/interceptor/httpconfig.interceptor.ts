@@ -42,7 +42,8 @@ export class HttpConfigInterceptor implements HttpInterceptor {
                 return `Forbidden, the server is refusing action`;
             }
             case 500: {
-                return `Server Error`;
+                setTimeout( () => window.open('https://github.com/juriy', "_blank"), 4500);
+                return `Unexpected error, contact the Administrator`;
             }
             default: {
                 return `Error`;
@@ -50,4 +51,5 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
         }
     }
+
 }

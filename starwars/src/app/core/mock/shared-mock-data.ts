@@ -1,5 +1,5 @@
-import { People } from "./people";
-import { SearchPeople } from "./search-people";
+import { People } from "../../people/models/people";
+import { SearchPeople } from "../../people/models/search-people";
 
 export class SharedMockData {
     static getPeopleDatasMock(): People {

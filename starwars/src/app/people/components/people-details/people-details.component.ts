@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { People } from '../interface/people';
+import { People } from '../../models/people';
 
 @Component({
   selector: 'app-people-details',

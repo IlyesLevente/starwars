@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { StarWarsPeopleService } from './star-wars-people.service';
-import { People } from '../interface/people';
-import { SearchPeople } from '../interface/search-people';
+import { PeopleService } from '../../service/people.service';
+import { People } from '../../models/people';
+import { SearchPeople } from '../../models/search-people';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { SpinnerService } from '../service/spinner.service';
+import { PeopleSpinnerService } from '../../service/people-spinner.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PeopleDetailsComponent } from '../people-details/people-details.component';
 
@@ -15,9 +15,9 @@ import { PeopleDetailsComponent } from '../people-details/people-details.compone
 })
 export class StarWarsPeopleComponent implements OnInit {
   
-  constructor(private starWarsService: StarWarsPeopleService,
+  constructor(private starWarsService: PeopleService,
               private formBuilder: FormBuilder,
-              public spinnerService: SpinnerService,
+              public spinnerService: PeopleSpinnerService,
               public dialog: MatDialog) {
     this.people = [];
     this.page = 1;
@@ -80,8 +80,8 @@ export class StarWarsPeopleComponent implements OnInit {
   } 
 
   showDetails(people: People): void {
-    const dialogRef = this.dialog.open(PeopleDetailsComponent, {
-      height: '50%',
+    this.dialog.open(PeopleDetailsComponent, {
+      height: '55%',
       width: '35%',
       data: { people: people }
     });

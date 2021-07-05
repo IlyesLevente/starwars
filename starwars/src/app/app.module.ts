@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StarWarsPeopleComponent } from './star-wars-people/star-wars-people.component';
+import { StarWarsPeopleComponent } from './people/components/star-wars-people/star-wars-people.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PeopleDetailsComponent } from './people/components/people-details/people-details.component';
 
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
@@ -20,8 +21,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpConfigInterceptor } from './interceptor/httpconfig.interceptor';
-import { PeopleDetailsComponent } from './people-details/people-details.component';
+import { HttpConfigInterceptor } from './core/interceptor/httpconfig.interceptor';
 
 @NgModule({
   declarations: [

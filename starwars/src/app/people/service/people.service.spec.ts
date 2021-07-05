@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { SharedMockData } from '../interface/shared-mock-data';
+import { SharedMockData } from '../../core/mock/shared-mock-data';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { StarWarsPeopleService } from './star-wars-people.service';
+import { PeopleService } from './people.service';
 
-describe('StarWarsPeopleService', () => {
-  let service: StarWarsPeopleService;
+describe('PeopleService', () => {
+  let service: PeopleService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -12,7 +12,7 @@ describe('StarWarsPeopleService', () => {
         HttpClientTestingModule
       ]
     });
-    service = TestBed.inject(StarWarsPeopleService);
+    service = TestBed.inject(PeopleService);
   });
 
   it('should be created', () => {

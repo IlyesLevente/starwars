@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SharedMockData } from '../interface/shared-mock-data';
+import { SharedMockData } from '../../../core/mock/shared-mock-data';
 
 import { PeopleDetailsComponent } from './people-details.component';
 

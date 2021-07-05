@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StarWarsPeopleComponent } from './star-wars-people.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SharedMockData } from '../interface/shared-mock-data';
+import { SharedMockData } from '../../../core/mock/shared-mock-data';
 import { By } from '@angular/platform-browser';
 
 describe('StarWarsPeopleComponent', () => {

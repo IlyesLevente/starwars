@@ -5,7 +5,7 @@
                 <form [formGroup]="form" class="input-form">
                     <mat-form-field class="input-full-width" appearance="fill">
                       <mat-label>Search</mat-label>
-                      <input matInput name="search" formControlName="search">
+                      <input matInput name="search" formControlName="search" (keydown.enter)="search()">
                     </mat-form-field>
                 </form>
             </mat-grid-tile>
@@ -29,7 +29,7 @@
     </div>
 
     <mat-list>
-        <mat-list-item *ngFor="let p of people; let i = index" class="table-element">
+        <mat-list-item *ngFor="let p of people" class="table-element">
             <mat-card class="table-card-element">
                 <mat-grid-list cols="12" rowHeight="2:1">
                     <mat-grid-tile colspan="1">
