@@ -26,7 +26,7 @@ Documentation for [SWAPI](https://swapi.dev/documentation). Currently the People
 ## Modules
 
 
-#### People
+### People
 
 This module contains 2 components, services for loading indication and requests, StarWarsPeopleComponent is used for searching in People resource and listing the results, PeopleDetailsComponent is used as a dialog to show more data about the selected row.
 
