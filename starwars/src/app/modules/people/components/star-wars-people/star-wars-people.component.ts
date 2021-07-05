@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleService } from '../../service/people.service';
+import { PeopleService } from '../../services/people.service';
 import { People } from '../../models/people';
 import { SearchPeople } from '../../models/search-people';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PeopleSpinnerService } from '../../service/people-spinner.service';
+import { PeopleSpinnerService } from '../../services/people-spinner.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PeopleDetailsComponent } from '../people-details/people-details.component';
 
@@ -15,9 +15,9 @@ import { PeopleDetailsComponent } from '../people-details/people-details.compone
 })
 export class StarWarsPeopleComponent implements OnInit {
   
-  constructor(private starWarsService: PeopleService,
+  constructor(private peopleService: PeopleService,
               private formBuilder: FormBuilder,
-              public spinnerService: PeopleSpinnerService,
+              public peopleSpinnerService: PeopleSpinnerService,
               public dialog: MatDialog) {
     this.people = [];
     this.page = 1;
@@ -49,14 +49,14 @@ export class StarWarsPeopleComponent implements OnInit {
   }
 
   getPeople(): void {
-    this.starWarsService.getPeople(this.page).subscribe(
+    this.peopleService.getPeople(this.page).subscribe(
       ( data: SearchPeople ) => { 
         this.setResult(data);
     });
   }
 
   searchPeople(name: string): void {
-    this.starWarsService.search(name).subscribe(
+    this.peopleService.search(name).subscribe(
       ( data: SearchPeople ) => { 
         this.setResult(data);
     });
@@ -81,7 +81,7 @@ export class StarWarsPeopleComponent implements OnInit {
 
   showDetails(people: People): void {
     this.dialog.open(PeopleDetailsComponent, {
-      height: '55%',
+      height: '70%',
       width: '35%',
       data: { people: people }
     });
@@ -92,6 +92,7 @@ export class StarWarsPeopleComponent implements OnInit {
     if ( this.form.controls['search'].value.length > 0 ) {
       this.searchPeople(this.form.controls['search'].value);
     } else {
+      this.page = 1;
       this.getPeople();
     }
   }

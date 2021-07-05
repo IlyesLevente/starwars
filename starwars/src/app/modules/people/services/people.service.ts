@@ -14,30 +14,30 @@ export class PeopleService {
   url = 'https://swapi.dev/api/people';
 
   constructor(private http: HttpClient,
-              private spinnerService: PeopleSpinnerService) { }
+              private peopleSpinnerService: PeopleSpinnerService) { }
 
   getPeople(page: number): Observable<SearchPeople> {
-    this.spinnerService.isLoading$.next(true);
+    this.peopleSpinnerService.isLoading$.next(true);
     return this.http.get<SearchPeople>(`${this.url}/?page=${page}`).
       pipe(
         map((data: SearchPeople) => {
           return this.setId(data);
         }),
         finalize( () => {
-          this.spinnerService.isLoading$.next(false);
+          this.peopleSpinnerService.isLoading$.next(false);
         }
     ))
   }
 
   search(name: string): Observable<SearchPeople> {
-    this.spinnerService.isLoading$.next(true);
+    this.peopleSpinnerService.isLoading$.next(true);
     return this.http.get<SearchPeople>(`${this.url}/?search=${name}`).
       pipe(
         map((data: SearchPeople) => {
           return this.setId(data);
         }),
         finalize( () => {
-          this.spinnerService.isLoading$.next(false);
+          this.peopleSpinnerService.isLoading$.next(false);
         })
       )
   }
