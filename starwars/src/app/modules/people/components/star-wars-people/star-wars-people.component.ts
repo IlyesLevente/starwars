@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PeopleService } from '../../services/people.service';
 import { People } from '../../models/people';
 import { SearchPeople } from '../../models/search-people';
@@ -7,13 +7,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { PeopleSpinnerService } from '../../services/people-spinner.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PeopleDetailsComponent } from '../people-details/people-details.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-star-wars-people',
   templateUrl: './star-wars-people.component.html',
   styleUrls: ['./star-wars-people.component.scss']
 })
-export class StarWarsPeopleComponent implements OnInit {
+export class StarWarsPeopleComponent implements OnInit, OnDestroy {
   
   constructor(private peopleService: PeopleService,
               private formBuilder: FormBuilder,
@@ -40,6 +42,7 @@ export class StarWarsPeopleComponent implements OnInit {
   position: TooltipPosition;
   form: FormGroup;
   input: string;
+  private readonly destroy$ = new Subject();
 
   ngOnInit(): void {
     this.getPeople();
@@ -48,18 +51,27 @@ export class StarWarsPeopleComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   getPeople(): void {
-    this.peopleService.getPeople(this.page).subscribe(
-      ( data: SearchPeople ) => { 
-        this.setResult(data);
-    });
+    this.peopleService.getPeople(this.page)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        ( data: SearchPeople ) => { 
+          this.setResult(data);
+      });
   }
 
   searchPeople(name: string): void {
-    this.peopleService.search(name).subscribe(
-      ( data: SearchPeople ) => { 
-        this.setResult(data);
-    });
+    this.peopleService.search(name)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        ( data: SearchPeople ) => { 
+          this.setResult(data);
+      });
   }
 
   setResult(data: SearchPeople) {
